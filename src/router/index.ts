@@ -28,5 +28,3 @@ export const privateRoutes: IRoute[] = [
         component: Event
     }
 ];
-
-export { }
