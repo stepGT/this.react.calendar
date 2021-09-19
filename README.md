@@ -37,3 +37,4 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 
 ## Stack
 ReactJS, TypeScript
+redux, react-redux, redux-thunk, react-router-dom, axios, moment
