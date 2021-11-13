@@ -1,7 +1,7 @@
 import { AuthAction, AuthActionsEnum, AuthState } from "./types";
 
 const initialState: AuthState = {
-    auth: false
+    isAuth: false
 }
 /**
  * 
@@ -13,7 +13,7 @@ export default function authReducer(state = initialState, action: AuthAction): A
     //
     switch (action.type) {
         case AuthActionsEnum.SET_AUTH:
-            return { ...state, auth: action.payload }
+            return { ...state, isAuth: action.payload }
         default:
             return state;
     }
