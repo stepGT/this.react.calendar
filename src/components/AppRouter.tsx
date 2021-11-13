@@ -8,24 +8,24 @@ const AppRouter: FC = () => {
         auth
             ?
             <Switch>
-                {privateRoutes.map(route => {
+                {privateRoutes.map(({ path, exact, component }) => {
                     return <Route
-                        path={route.path}
-                        exact={route.exact}
-                        component={route.component}
-                        key={route.path}
+                        path={path}
+                        exact={exact}
+                        component={component}
+                        key={path}
                     />
                 })}
                 <Redirect to={RoutesNames.EVENT} />
             </Switch>
             :
             <Switch>
-                {publicRoutes.map(route => {
+                {publicRoutes.map(({ path, exact, component }) => {
                     return <Route
-                        path={route.path}
-                        exact={route.exact}
-                        component={route.component}
-                        key={route.path}
+                        path={path}
+                        exact={exact}
+                        component={component}
+                        key={path}
                     />
                 })}
                 <Redirect to={RoutesNames.LOGIN} />
