@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { privateRoutes, publicRoutes, RoutesNames } from '../router';
 
