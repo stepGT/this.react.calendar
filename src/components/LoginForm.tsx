@@ -1,10 +1,18 @@
 import { FC } from 'react';
 import { Form, Input, Button } from 'antd';
-import { rules } from '../utils/rules'
+import { rules } from '../utils/rules';
+import { useDispatch } from 'react-redux';
+import { AuthActionCreators } from '../store/reducers/auth/action-creators';
 
 const LoginForm: FC = () => {
+    const dispatch = useDispatch()
+    const onFinish = () => {
+        dispatch(AuthActionCreators.login('stepGT', '777'));
+    }
     return (
-        <Form>
+        <Form
+            onFinish={onFinish} // Trigger after submitting the form and verifying data successfully
+        >
             <Form.Item
                 label="Username"
                 name="username"
