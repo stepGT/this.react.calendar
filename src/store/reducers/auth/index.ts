@@ -1,7 +1,11 @@
+import { IUser } from "../../../models/IUser";
 import { AuthAction, AuthActionsEnum, AuthState } from "./types";
 
 const initialState: AuthState = {
-    isAuth: false
+    isAuth: false,
+    user: {} as IUser,
+    error: '',
+    isLoading: false
 }
 /**
  * 
@@ -13,7 +17,13 @@ export default function authReducer(state = initialState, action: AuthAction): A
     //
     switch (action.type) {
         case AuthActionsEnum.SET_AUTH:
-            return { ...state, isAuth: action.payload }
+            return { ...state, isAuth: action.payload, isLoading: false }
+        case AuthActionsEnum.SET_USER:
+            return { ...state, user: action.payload }
+        case AuthActionsEnum.SET_IS_LOADING:
+            return { ...state, isLoading: action.payload }
+        case AuthActionsEnum.SET_ERROR:
+            return { ...state, error: action.payload, isLoading: false }
         default:
             return state;
     }
