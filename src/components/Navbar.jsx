@@ -25,7 +25,7 @@ const Navbar: FC = () => {
                         :
                         <Menu theme="dark" mode="horizontal" selectable={false}>
                             <Menu.Item
-                                onClick={router.push(RoutesNames.LOGIN)}
+                                onClick={() => router.push(RoutesNames.LOGIN)}
                                 key="1">
                                 Login
                             </Menu.Item>
