@@ -1,6 +1,6 @@
 import { IUser } from "../../../models/IUser";
 import { AuthActionsEnum, SetAuthAction, SetUserAction, SetIsLoadingAction, SetErrorAction } from './types';
-import { ApplyDispatch } from '../../index';
+import { AppDispatch } from '../../index';
 import axios from "axios";
 
 export const AuthActionCreators = {
@@ -42,7 +42,7 @@ export const AuthActionCreators = {
             AuthActionCreators.setError('Error login!');
         }
     },
-    logout: () => async (dispatch: ApplyDispatch) => {
+    logout: () => async (dispatch: AppDispatch) => {
         try {
 
         } catch (error) {
