@@ -10,7 +10,7 @@ export interface IRoute {
 
 export enum RoutesNames {
     LOGIN = 'https://stepgt.github.io/this_react_calendar/build/login',
-    EVENT = 'https://stepgt.github.io/this_react_calendar/build/'
+    EVENT = 'https://stepgt.github.io/this_react_calendar/build/index.html'
 }
 
 export const publicRoutes: IRoute[] = [
