@@ -9,14 +9,14 @@ import { AuthActionCreators } from '../store/reducers/auth/action-creators'
 const Navbar: FC = () => {
     const dispatch = useDispatch();
     const router = useHistory();
-    const { isAuth } = useTypedSelector(state => state.auth);
+    const { isAuth, user } = useTypedSelector(state => state.auth);
     return (
         <Layout.Header>
             <Row justify="end">
                 {
                     isAuth ?
                         <>
-                            <div style={{ color: 'white' }}>stepGT</div>
+                            <div style={{ color: 'white' }}>{ user.uname }</div>
                             <Menu theme="dark" mode="horizontal" selectable={false}>
                                 <Menu.Item
                                     onClick={() => { dispatch(AuthActionCreators.logout()) }}
