@@ -1,24 +1,30 @@
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import { Form, Input, Button } from 'antd';
 import { rules } from '../utils/rules';
 import { useDispatch } from 'react-redux';
 import { AuthActionCreators } from '../store/reducers/auth/action-creators';
+import { useTypedSelector } from '../hooks/useTypedSelector';
 
 const LoginForm: FC = () => {
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
     const dispatch = useDispatch()
+    const { error, isLoading } = useTypedSelector(state => state.auth);
     const onFinish = () => {
-        dispatch(AuthActionCreators.login('stepGT', '777'));
+        dispatch(AuthActionCreators.login(username, password));
     }
     return (
         <Form
             onFinish={onFinish} // Trigger after submitting the form and verifying data successfully
-        >
+        >   
+            { error && <div style={{ color: 'red' }}>{ error }</div>}
+
             <Form.Item
                 label="Username"
                 name="username"
                 rules={[rules.required('Please input your username!')]}
             >
-                <Input />
+                <Input value={username} onChange={e => setUsername(e.target.value)} />
             </Form.Item>
 
             <Form.Item
@@ -26,11 +32,11 @@ const LoginForm: FC = () => {
                 name="password"
                 rules={[rules.required('Please input your password!')]}
             >
-                <Input />
+                <Input type='password' value={password} onChange={e => setPassword(e.target.value)} />
             </Form.Item>
 
             <Form.Item>
-                <Button type="primary" htmlType="submit">
+                <Button type="primary" htmlType="submit" loading={isLoading}>
                     Submit
                 </Button>
             </Form.Item>
