@@ -1,4 +1,4 @@
 export interface IUser {
-    uname: string,
-    pass: string
+    uname: string;
+    pass: string;
 }
