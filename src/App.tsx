@@ -13,7 +13,7 @@ const App: FC = () => {
       setUser({ uname: localStorage.getItem('username' || '') } as IUser);
       setAuth(true);
     }
-  }, []);
+  }, [setUser, setAuth]);
 
   return (
     <div>
