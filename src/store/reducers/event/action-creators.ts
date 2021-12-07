@@ -2,7 +2,6 @@ import { EventActionsEnum, SetEventAction, SetGuestsAction } from './types';
 import { IUser } from '../../../models/IUser';
 import { IEvent } from '../../../models/IEvent';
 import { AppDispatch } from '../../index';
-import axios from 'axios';
 import UserService from '../../../api/UserService';
 
 export const EventActionCreators = {
@@ -11,7 +10,7 @@ export const EventActionCreators = {
     payload,
   }),
   setEvents: (payload: IEvent[]): SetEventAction => ({
-    type: EventActionsEnum.SET_GUESTS,
+    type: EventActionsEnum.SET_EVENTS,
     payload,
   }),
   fetchGuests: () => async (dispatch: AppDispatch) => {
