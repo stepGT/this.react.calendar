@@ -1,9 +1,8 @@
 import { FC } from 'react';
+import EventCalendar from '../components/EventCalendar';
 
 const Event: FC = () => {
-    return (
-        <div>Event</div>
-    );
-}
+  return <EventCalendar events={[]} />;
+};
 
 export default Event;
