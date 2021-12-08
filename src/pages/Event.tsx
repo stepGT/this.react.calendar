@@ -20,7 +20,6 @@ const Event: FC = () => {
 
   return (
     <Layout>
-      {JSON.stringify(events)}
       <EventCalendar events={[]} />
       <Row justify="center">
         <Button onClick={() => setModalVisible(true)}>Add event</Button>
