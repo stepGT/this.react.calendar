@@ -1,31 +1,32 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { privateRoutes, publicRoutes, RoutesNames } from '../router';
+import { useTypedSelector } from '../hooks/useTypedSelector';
 
 const AppRouter: FC = () => {
-    const auth = true;
+    const { isAuth } = useTypedSelector(state => state.auth);
     return (
-        auth
+        isAuth
             ?
             <Switch>
-                {privateRoutes.map(route => {
+                {privateRoutes.map(({ path, exact, component }) => {
                     return <Route
-                        path={route.path}
-                        exact={route.exact}
-                        component={route.component}
-                        key={route.path}
+                        path={path}
+                        exact={exact}
+                        component={component}
+                        key={path}
                     />
                 })}
                 <Redirect to={RoutesNames.EVENT} />
             </Switch>
             :
             <Switch>
-                {publicRoutes.map(route => {
+                {publicRoutes.map(({ path, exact, component }) => {
                     return <Route
-                        path={route.path}
-                        exact={route.exact}
-                        component={route.component}
-                        key={route.path}
+                        path={path}
+                        exact={exact}
+                        component={component}
+                        key={path}
                     />
                 })}
                 <Redirect to={RoutesNames.LOGIN} />
